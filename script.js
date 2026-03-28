@@ -63,63 +63,46 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Skill Bars Animation
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            console.log('Skills section is visible, animating skill bars...');
-            const skillBars = entry.target.querySelectorAll('.skill-progress');
-            console.log('Found skill bars:', skillBars.length);
-            
-            skillBars.forEach((bar, index) => {
-                const progress = bar.getAttribute('data-progress');
-                console.log(`Animating bar ${index + 1} to ${progress}%`);
-                
-                // Add animation class for CSS animation
-                setTimeout(() => {
-                    bar.classList.add('animate');
-                    bar.style.width = progress + '%';
-                    console.log(`Set bar ${index + 1} width to ${progress}%`);
-                }, 200 * index);
-            });
-            
-            // Stop observing after animation
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Also initialize skill bars on page load as fallback
-function initializeSkillBars() {
+// Skill Bars Animation - Simple and reliable
+function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
-    skillBars.forEach(bar => {
+    console.log('Found skill bars:', skillBars.length);
+    
+    skillBars.forEach((bar, index) => {
         const progress = bar.getAttribute('data-progress');
         if (progress) {
-            // Set initial width immediately
+            console.log(`Setting bar ${index + 1} to ${progress}%`);
+            // Set width directly - bars already have inline styles
             setTimeout(() => {
                 bar.style.width = progress + '%';
-            }, 500);
+            }, 100 * index);
         }
     });
 }
 
-const skillsSection = document.querySelector('.skills');
-if (skillsSection) {
-    console.log('Skills section found, starting observer...');
-    skillObserver.observe(skillsSection);
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded, initializing skill bars...');
     
-    // Fallback: initialize after 2 seconds if observer doesn't work
-    setTimeout(initializeSkillBars, 2000);
-} else {
-    console.error('Skills section not found!');
-    // Fallback: try to initialize anyway
-    setTimeout(initializeSkillBars, 1000);
-}
+    // Try immediately
+    setTimeout(animateSkillBars, 500);
+    
+    // Also try when scrolling to skills section
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('Skills section visible, animating bars...');
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(skillsSection);
+    }
+});
 
 // Typing Effect for Hero Name
 const nameElement = document.querySelector('.name');

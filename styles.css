@@ -1733,11 +1733,6 @@ body {
     transition: width 2s ease;
 }
 
-/* Fallback for skill bars - show progress immediately */
-.skill-progress[data-progress] {
-    width: var(--progress, 0%);
-}
-
 /* Animation trigger when page loads */
 .skill-progress.animate {
     animation: fillBar 2s ease forwards;
@@ -1748,7 +1743,7 @@ body {
         width: 0;
     }
     to {
-        width: var(--progress, 0%);
+        width: var(--target-width, 0%);
     }
 }
 
