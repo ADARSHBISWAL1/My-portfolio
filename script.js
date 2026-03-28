@@ -65,8 +65,8 @@ window.addEventListener('scroll', () => {
 
 // Skill Bars Animation
 const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const skillObserver = new IntersectionObserver((entries) => {
@@ -75,24 +75,50 @@ const skillObserver = new IntersectionObserver((entries) => {
             console.log('Skills section is visible, animating skill bars...');
             const skillBars = entry.target.querySelectorAll('.skill-progress');
             console.log('Found skill bars:', skillBars.length);
+            
             skillBars.forEach((bar, index) => {
                 const progress = bar.getAttribute('data-progress');
                 console.log(`Animating bar ${index + 1} to ${progress}%`);
+                
+                // Add animation class for CSS animation
                 setTimeout(() => {
+                    bar.classList.add('animate');
                     bar.style.width = progress + '%';
                     console.log(`Set bar ${index + 1} width to ${progress}%`);
                 }, 200 * index);
             });
+            
+            // Stop observing after animation
+            skillObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
+
+// Also initialize skill bars on page load as fallback
+function initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    skillBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        if (progress) {
+            // Set initial width immediately
+            setTimeout(() => {
+                bar.style.width = progress + '%';
+            }, 500);
+        }
+    });
+}
 
 const skillsSection = document.querySelector('.skills');
 if (skillsSection) {
     console.log('Skills section found, starting observer...');
     skillObserver.observe(skillsSection);
+    
+    // Fallback: initialize after 2 seconds if observer doesn't work
+    setTimeout(initializeSkillBars, 2000);
 } else {
     console.error('Skills section not found!');
+    // Fallback: try to initialize anyway
+    setTimeout(initializeSkillBars, 1000);
 }
 
 // Typing Effect for Hero Name
