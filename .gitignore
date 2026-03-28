@@ -55,10 +55,3 @@ Thumbs.db
 
 # Windsurf specific
 .windsurf/
-
-# Security - Harmful files
-desktop.ini
-*.ini
-WhatsApp*.jpeg
-WhatsApp*.jpg
-intern/
