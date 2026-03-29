@@ -22,7 +22,7 @@ Hello! I am [Adarsh Biswal](https://github.com/ADARSHBISWAL1), a passionate deve
 - Description: Brief description of another project or accomplishment.
 
 ## Get in Touch!
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+- 📧 Email: adarshbiswal6@gmail.com
 - 🔗 LinkedIn: [Your LinkedIn Profile](https://linkedin.com)
 
 ---
