@@ -1,33 +1,30 @@
-🌐 Personal Portfolio Website
-📌 Overview
+# Welcome to My Portfolio
 
-This is my personal portfolio website where I showcase my skills, projects, and achievements as a B.Tech Computer Science (AI & ML) student. It provides a clear and professional overview of my work for recruiters and developers.
+![Portfolio Badge](https://img.shields.io/badge/Portfolio-red?style=flat&logo=github)
+![GitHub](https://img.shields.io/badge/GitHub-Portfolio-181717?style=flat&logo=github&logoColor=white)
 
-🚀 Live Demo
-👉 https://adarshbiswal1.github.io/My-portfolio/
+## About Me
 
-🧑‍💻 About Me
-I am Adarsh Biswal, an aspiring Python Developer with a strong interest in Artificial Intelligence and Machine Learning. I enjoy building real-world projects and participating in hackathons to enhance my skills.
+Hello! I am [Adarsh Biswal](https://github.com/ADARSHBISWAL1), a passionate developer and designer. Here’s a glimpse of my journey!
 
-🛠️ Tech Stack
-HTML
-CSS
-JavaScript
-✨ Features
-Responsive design (mobile & desktop friendly)
-Clean and modern UI
-Projects showcase section
-About me section
-Contact section
-📂 Projects Highlighted
-Voice-to-Action System (Top 16 Hackathon Project)
-Hospital Management System (1st Rank Project)
-Netflix Clone
-Mental Health Chatbot
-📸 Preview
-<img width="1897" height="1079" alt="image" src="https://github.com/user-attachments/assets/fa8ab83c-14d9-4b09-bddf-68e25eea2228" />
+## Skills
+- 🎨 **Creative Design**
+- 💻 **Web Development**
+- ⚙️ **Software Engineering**
 
+## Projects
+### [Project Name](#)
+![Project Image](https://via.placeholder.com/150)
+- Description: Brief description of the project or accomplishment.
 
-📬 Contact
-Email: adarshbiswal6@gmail.com
-LinkedIn: https://www.linkedin.com/in/adarsh-biswal-6113062a1
+### [Another Project](#)
+![Project Image](https://via.placeholder.com/150)
+- Description: Brief description of another project or accomplishment.
+
+## Get in Touch!
+- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+- 🔗 LinkedIn: [Your LinkedIn Profile](https://linkedin.com)
+
+---
+
+Thanks for checking out my portfolio! Feel free to connect!
