@@ -1,20 +1,3 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -335,13 +318,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make functions global
     window.openInternshipCertificates = openInternshipCertificates;
     window.closeInternshipCertificates = closeInternshipCertificates;
-});
-
-// Also add onclick as backup for close button
-document.addEventListener('DOMContentLoaded', function() {
-    const closeBtn = document.getElementById('closeCertificateModal');
-    if (closeBtn) {
-        closeBtn.setAttribute('onclick', 'closeInternshipCertificates()');
+    
+    // Also add onclick as backup for close button
+    const closeBtnBackup = document.getElementById('closeCertificateModal');
+    if (closeBtnBackup) {
+        closeBtnBackup.setAttribute('onclick', 'closeInternshipCertificates()');
         console.log('Backup onclick added to close button');
     }
 });
